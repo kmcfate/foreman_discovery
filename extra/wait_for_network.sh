@@ -3,7 +3,7 @@ n=1
 server=""
 
 until [ "$server" != "" ]; do
-    server=$(route -n|grep ^0.0.0.0|awk '{print $2}'
+    server=$(route -n|grep ^0.0.0.0|awk '{print $2}')
 done
 
 echo "Testing ping to $server to see if network is up..."
