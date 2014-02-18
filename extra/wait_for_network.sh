@@ -1,16 +1,9 @@
 #!/bin/sh
 n=1
+server=""
 
-for x in `cat /proc/cmdline`
-do
-    case $x in
-        foreman.ip=*)
-            server="${x//foreman.ip=}"
-        ;;
-        foreman.server=*)
-            server="${x//foreman.server=}"
-        ;;
-    esac
+until [ "$server" != "" ]; do
+    server=$(route -n|grep ^0.0.0.0|awk '{print $2}'
 done
 
 echo "Testing ping to $server to see if network is up..."
